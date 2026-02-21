@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_de_Graduacao__c</fullName>
+    <label>Data de Graduação</label>
+    <type>Picklist</type>
+    <required>false</required>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Jun/2027</fullName>
+                <default>false</default>
+                <label>Jun/2027</label>
+            </value>
+            <value>
+                <fullName>Dez/2027</fullName>
+                <default>false</default>
+                <label>Dez/2027</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

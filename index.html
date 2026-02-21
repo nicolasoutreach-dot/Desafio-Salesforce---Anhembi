@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackaton Salesforce 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- reCAPTCHA: descomentar quando tiver chave v2 válida -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Inscrições Abertas</div>
+            <h1>Hackaton Salesforce</h1>
+            <div class="hero-details">
+                <div class="hero-detail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>07/03 das 9hrs às 17hrs</span>
+                </div>
+                <div class="hero-detail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>FECAP — Av. da Liberdade, 532 - Liberdade, São Paulo - SP, 01502-001</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="stepper">
+            <div class="step active" data-step="1">
+                <div class="step-circle">
+                    <span class="step-number">1</span>
+                    <svg class="step-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <span class="step-label">Dados Pessoais</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2">
+                <div class="step-circle">
+                    <span class="step-number">2</span>
+                    <svg class="step-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <span class="step-label">Elegibilidade</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3">
+                <div class="step-circle">
+                    <span class="step-number">3</span>
+                    <svg class="step-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <span class="step-label">Pre-Work</span>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <form id="hackathon-form" novalidate>
+
+                <!-- ========== STEP 1: Dados Pessoais ========== -->
+                <div class="form-step active" data-step="1">
+                    <div class="form-step-header">
+                        <h2>Dados Pessoais</h2>
+                        <p>Preencha seus dados para se inscrever no Hackaton.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">Nome <span class="required">*</span></label>
+                            <input type="text" id="first_name" name="first_name" placeholder="Seu nome" required>
+                            <span class="error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Sobrenome <span class="required">*</span></label>
+                            <input type="text" id="last_name" name="last_name" placeholder="Seu sobrenome" required>
+                            <span class="error-msg"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            <span class="error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                            <span class="error-msg"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Instituição de Ensino <span class="required">*</span></label>
+                        <select id="company" name="company" required>
+                            <option value="">Selecione sua instituição...</option>
+                            <option value="FECAP">FECAP</option>
+                            <option value="PUC-SP">PUC-SP</option>
+                            <option value="MACKENZIE">MACKENZIE</option>
+                            <option value="ESPM">ESPM</option>
+                            <option value="INSPER">INSPER</option>
+                            <option value="INTELI">INTELI</option>
+                            <option value="USP">USP</option>
+                            <option value="UNICAMP">UNICAMP</option>
+                            <option value="INSTITUTO SEMEAR">INSTITUTO SEMEAR</option>
+                            <option value="SAO JUDAS">SÃO JUDAS</option>
+                            <option value="FEI">FEI</option>
+                            <option value="FEDERAL DO ABC">FEDERAL DO ABC</option>
+                            <option value="__outros__">Outros</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group hidden" id="other-institution-group">
+                        <label for="other_institution">Qual instituição? <span class="required">*</span></label>
+                        <input type="text" id="other_institution" placeholder="Digite o nome da sua instituição">
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Curso <span class="required">*</span></label>
+                        <input type="text" id="title" name="title" placeholder="Ex: Administração, Engenharia..." required>
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <div></div>
+                        <button type="button" class="btn btn-primary btn-next">
+                            Próximo
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========== STEP 2: Elegibilidade ========== -->
+                <div class="form-step" data-step="2">
+                    <div class="form-step-header">
+                        <h2>Critérios de Elegibilidade</h2>
+                        <p>Verifique se você atende aos critérios para participar do Hackaton.</p>
+                    </div>
+
+                    <div class="eligibility-card">
+                        <div class="eligibility-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                        <div class="eligibility-text">
+                            <strong>Requisitos:</strong>
+                            <ul>
+                                <li>Graduação prevista para Jun/2027 ou Dez/2027</li>
+                                <li>Nível de inglês a partir de Intermediário</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graduation_date">Data da Graduação <span class="required">*</span></label>
+                        <select id="graduation_date" name="graduation_date" required>
+                            <option value="">Selecione...</option>
+                            <option value="Jun/2027">Junho de 2027</option>
+                            <option value="Dez/2027">Dezembro de 2027</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="english_level">Nível de Inglês <span class="required">*</span></label>
+                        <select id="english_level" name="english_level" required>
+                            <option value="">Selecione...</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary btn-prev">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Voltar
+                        </button>
+                        <button type="button" class="btn btn-primary btn-next">
+                            Próximo
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========== STEP 3: Pre-Work ========== -->
+                <div class="form-step" data-step="3">
+                    <div class="form-step-header">
+                        <h2>Pre-Work</h2>
+                        <p>Complete o trail e compartilhe seu perfil do Trailhead.</p>
+                    </div>
+
+                    <div class="prework-card">
+                        <div class="prework-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <div class="prework-text">
+                            <strong>Trail obrigatório: Become an Agentblazer Champion 2026</strong>
+                            <p>Complete o trail antes do evento para garantir sua participação.</p>
+                            <a href="https://trailhead.salesforce.com/pt-BR/content/learn/trails/become-an-agentblazer-champion-2026"
+                               target="_blank" rel="noopener noreferrer" class="prework-link">
+                                Acessar Trail no Trailhead
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trailhead_url">Link do Perfil do Trailhead <span class="required">*</span></label>
+                        <input type="url" id="trailhead_url" name="trailhead_url"
+                               placeholder="https://trailhead.salesforce.com/pt-BR/me/..." required>
+                        <span class="field-hint">Certifique-se de que seu perfil está público.</span>
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="certifications">Certificações Salesforce <span class="optional">(opcional)</span></label>
+                        <textarea id="certifications" name="certifications" rows="3"
+                                  placeholder="Liste suas certificações ou cole links de comprovação..."></textarea>
+                        <span class="field-hint">Ex: Salesforce Administrator, Platform Developer I, etc.</span>
+                    </div>
+
+                    <!-- reCAPTCHA: descomentar quando tiver chave v2 válida -->
+                    <!--
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="SUA_SITE_KEY_V2_AQUI"></div>
+                        <span class="error-msg" id="recaptcha-error"></span>
+                    </div>
+                    -->
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary btn-prev">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Voltar
+                        </button>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            Inscrever-se
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Hackaton Salesforce 2026 &mdash; Powered by Salesforce</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
