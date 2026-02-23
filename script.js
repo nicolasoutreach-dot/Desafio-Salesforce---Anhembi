@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             valid = false;
         }
 
-        if (step === 1) {
+        if (step === 3) {
             const linkedinInput = document.getElementById('linkedin_url');
             if (linkedinInput && linkedinInput.value.trim() && !isValidURL(linkedinInput.value.trim())) {
                 const group = linkedinInput.closest('.form-group');
