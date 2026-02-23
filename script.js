@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check available spots
     // ============================
 
-    fetch('config.json')
+    fetch('/api/vagas')
         .then(res => res.json())
         .then(data => {
             if (!data.available) {
