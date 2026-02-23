@@ -116,6 +116,15 @@ document.addEventListener('DOMContentLoaded', () => {
             valid = false;
         }
 
+        if (step === 1) {
+            const linkedinInput = document.getElementById('linkedin_url');
+            if (linkedinInput && linkedinInput.value.trim() && !isValidURL(linkedinInput.value.trim())) {
+                const group = linkedinInput.closest('.form-group');
+                setError(group, 'Digite uma URL válida (ex: https://www.linkedin.com/in/seu-perfil)');
+                valid = false;
+            }
+        }
+
         return valid;
     }
 
@@ -188,16 +197,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const englishLevel = document.getElementById('english_level').value;
         const trailheadUrl = document.getElementById('trailhead_url').value.trim();
         const certifications = document.getElementById('certifications').value.trim();
+        const linkedinUrl = document.getElementById('linkedin_url').value.trim();
 
 
         const hiddenForm = document.createElement('form');
         hiddenForm.method = 'POST';
         hiddenForm.action = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
         hiddenForm.style.display = 'none';
+        hiddenForm.target = 'salesforce-webtolead-iframe';
 
+        const obrigadoUrl = new URL('obrigado.html', window.location.href).href;
         const fields = {
             oid: '00DWt00000GGfdt',
-            retURL: new URL('obrigado.html', window.location.href).href,
+            retURL: obrigadoUrl,
             first_name: document.getElementById('first_name').value.trim(),
             last_name: document.getElementById('last_name').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -209,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Nivel_de_Ingles__c: englishLevel,
             Perfil_Trailhead__c: trailheadUrl,
             Certificacoes__c: certifications,
+            Perfil_LinkedIn__c: linkedinUrl,
         };
 
         Object.entries(fields).forEach(([name, value]) => {
@@ -227,7 +240,18 @@ document.addEventListener('DOMContentLoaded', () => {
             hiddenForm.appendChild(captchaInput);
         }
 
+        let iframe = document.getElementById('salesforce-webtolead-iframe');
+        if (!iframe) {
+            iframe = document.createElement('iframe');
+            iframe.name = 'salesforce-webtolead-iframe';
+            iframe.id = 'salesforce-webtolead-iframe';
+            iframe.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden';
+            document.body.appendChild(iframe);
+        }
+
         document.body.appendChild(hiddenForm);
         hiddenForm.submit();
+
+        window.location.href = obrigadoUrl;
     });
 });

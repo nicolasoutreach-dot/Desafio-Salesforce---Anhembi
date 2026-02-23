@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackaton Salesforce 2026</title>
+    <title>Hackathon Salesforce 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://www.fuelcdn.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/salesforce-logo.png" type="image/png">
     <!-- reCAPTCHA: descomentar quando tiver chave v2 válida -->
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
@@ -17,7 +19,10 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-badge">Inscrições Abertas</div>
-            <h1>Hackaton Salesforce</h1>
+            <div class="hero-title-row">
+                <img src="images/astro.png" alt="Agent Astro, mascote Salesforce" class="hero-astro">
+                <h1>Hackathon Salesforce</h1>
+            </div>
             <div class="hero-details">
                 <div class="hero-detail">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -79,7 +84,7 @@
                 <div class="form-step active" data-step="1">
                     <div class="form-step-header">
                         <h2>Dados Pessoais</h2>
-                        <p>Preencha seus dados para se inscrever no Hackaton.</p>
+                        <p>Preencha seus dados para se inscrever no Hackathon.</p>
                     </div>
 
                     <div class="form-row">
@@ -109,22 +114,37 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="linkedin_url">Link do perfil do LinkedIn</label>
+                        <input type="url" id="linkedin_url" name="linkedin_url" placeholder="https://www.linkedin.com/in/seu-perfil">
+                        <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
                         <label for="company">Instituição de Ensino <span class="required">*</span></label>
                         <select id="company" name="company" required>
                             <option value="">Selecione sua instituição...</option>
-                            <option value="FECAP">FECAP</option>
-                            <option value="PUC-SP">PUC-SP</option>
-                            <option value="MACKENZIE">MACKENZIE</option>
+                            <option value="BELAS ARTES">BELAS ARTES</option>
                             <option value="ESPM">ESPM</option>
-                            <option value="INSPER">INSPER</option>
-                            <option value="INTELI">INTELI</option>
-                            <option value="USP">USP</option>
-                            <option value="UNICAMP">UNICAMP</option>
-                            <option value="INSTITUTO SEMEAR">INSTITUTO SEMEAR</option>
-                            <option value="SAO JUDAS">SÃO JUDAS</option>
+                            <option value="FACULDADE XP">FACULDADE XP</option>
+                            <option value="FECAP">FECAP</option>
                             <option value="FEI">FEI</option>
-                            <option value="FEDERAL DO ABC">FEDERAL DO ABC</option>
-                            <option value="__outros__">Outros</option>
+                            <option value="FIAP">FIAP</option>
+                            <option value="IBMEC">IBMEC</option>
+                            <option value="INSPER">INSPER</option>
+                            <option value="INSTITUTO SEMEAR">INSTITUTO SEMEAR</option>
+                            <option value="INTELI">INTELI</option>
+                            <option value="MACKENZIE">MACKENZIE</option>
+                            <option value="PUC-SP">PUC-SP</option>
+                            <option value="SAO JUDAS">SÃO JUDAS</option>
+                            <option value="UFABC">UFABC - Universidade Federal do ABC</option>
+                            <option value="UNICAMP">UNICAMP</option>
+                            <option value="UNICID">UNICID</option>
+                            <option value="UNINOVE">UNINOVE</option>
+                            <option value="UNIP">UNIP</option>
+                            <option value="USP">USP</option>
+                            <option value="USP IME">USP IME</option>
+                            <option value="USP POLI">USP POLI</option>
+                            <option value="__outros__">Outros: (digitar)</option>
                         </select>
                         <span class="error-msg"></span>
                     </div>
@@ -157,7 +177,7 @@
                 <div class="form-step" data-step="2">
                     <div class="form-step-header">
                         <h2>Critérios de Elegibilidade</h2>
-                        <p>Verifique se você atende aos critérios para participar do Hackaton.</p>
+                        <p>Verifique se você atende aos critérios para participar do Hackathon.</p>
                     </div>
 
                     <div class="eligibility-card">
@@ -290,7 +310,7 @@
     </main>
 
     <footer>
-        <p>Hackaton Salesforce 2026 &mdash; Powered by Salesforce</p>
+        <p>Hackathon Salesforce 2026 &mdash; Powered by Salesforce</p>
     </footer>
 
     <script src="script.js"></script>

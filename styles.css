@@ -1,4 +1,57 @@
+/* ===========================
+   SALESFORCE TYPOGRAPHY
+   Ref: https://brand.salesforce.com/in/core-brand/typography
+   Avant Garde (Demi): H1, H2–H4, CTAs, labels
+   Salesforce Sans (Regular/Bold sparingly): body, captions
+   =========================== */
+
+@font-face {
+    font-family: 'Salesforce Sans';
+    src: url('https://www.fuelcdn.com/223974/lightning-design-system/1.0.0/fonts/webfonts/SalesforceSans-Light.woff2') format('woff2'),
+         url('https://www.fuelcdn.com/223974/lightning-design-system/1.0.0/fonts/webfonts/SalesforceSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Salesforce Sans';
+    src: url('https://www.fuelcdn.com/223974/lightning-design-system/1.0.0/fonts/webfonts/SalesforceSans-Regular.woff2') format('woff2'),
+         url('https://www.fuelcdn.com/223974/lightning-design-system/1.0.0/fonts/webfonts/SalesforceSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Salesforce Sans';
+    src: url('https://www.fuelcdn.com/223974/lightning-design-system/1.0.0/fonts/webfonts/SalesforceSans-Bold.woff2') format('woff2'),
+         url('https://www.fuelcdn.com/223974/lightning-design-system/1.0.0/fonts/webfonts/SalesforceSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
+    /* Cloud Blues & Blues – paleta principal Salesforce (1:00 PM, energética) */
+    --sf-blue-10: #001639;
+    --sf-blue-15: #03234d;
+    --sf-blue-20: #032d60;
+    --sf-blue-30: #014486;
+    --sf-blue-40: #0b5cab;
+    --sf-blue-50: #0176d3;
+    --sf-blue-60: #1b96ff;
+    --sf-blue-65: #57a3fd;
+    --sf-blue-70: #78b0fd;
+    --sf-blue-80: #aacbff;
+    --sf-blue-90: #d8e6fe;
+    --sf-blue-95: #eef4ff;
+    --sf-cloud-20: #023248;
+    --sf-cloud-50: #107cad;
+    --sf-cloud-60: #0d9dda;
+    --sf-cloud-70: #1ab9ff;
+    --sf-cloud-90: #cfe9fe;
+    /* Aliases (compatibilidade) */
     --sf-blue: #0176d3;
     --sf-blue-dark: #014486;
     --sf-blue-darker: #032d60;
@@ -7,15 +60,20 @@
     --sf-navy: #0b0f19;
     --sf-sky: #0d9dda;
     --sf-white: #ffffff;
+    /* Neutros */
     --sf-gray-100: #f3f3f3;
     --sf-gray-200: #e5e5e5;
     --sf-gray-300: #c9c9c9;
     --sf-gray-500: #706e6b;
     --sf-gray-700: #444444;
-    --sf-gray-900: #1a1b1e;
+    --sf-gray-900: #181818;
+    /* Semânticas */
     --sf-success: #2e844a;
     --sf-error: #ea001e;
     --sf-warning: #fe9339;
+    /* Tipografia */
+    --font-heading: 'Barlow SemiCondensed', 'Salesforce Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
@@ -40,14 +98,23 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-body);
     color: var(--sf-gray-900);
     background: var(--sf-gray-100);
-    line-height: 1.6;
+    line-height: 1.5; /* B1: 150% line spacing */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
+}
+
+body p {
+    margin-bottom: 0.5em; /* B1: paragraph spacing 50% of size */
+}
+
+/* H1, H2–H4, CTAs, labels: Avant Garde Demi (Barlow SemiCondensed 600) */
+h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label, .step-label, .hero-badge, .btn {
+    font-family: var(--font-heading);
 }
 
 /* ===========================
@@ -56,7 +123,7 @@ body {
 
 .hero {
     position: relative;
-    background: linear-gradient(135deg, var(--sf-blue-darker) 0%, var(--sf-blue) 50%, var(--sf-sky) 100%);
+    background: linear-gradient(135deg, var(--sf-blue-20) 0%, var(--sf-blue-50) 45%, var(--sf-cloud-60) 100%);
     padding: 60px 24px 80px;
     text-align: center;
     overflow: hidden;
@@ -87,20 +154,37 @@ body {
     padding: 6px 20px;
     border-radius: 50px;
     font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-weight: 600; /* Demi */
+    letter-spacing: 0; /* H2-4/eyebrow: tracking 0% */
     margin-bottom: 20px;
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+/* Hero title + Astro: alinhamento homogêneo (Brand Central – clear space, placement) */
+.hero-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem; /* clear space entre mascote e título */
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.hero-astro {
+    width: auto;
+    height: clamp(64px, 12vw, 100px);
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 800;
+    font-weight: 600; /* H1: Avant Garde Demi */
     color: var(--sf-white);
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    margin-bottom: 0;
+    letter-spacing: -0.02em; /* H1: tracking -2% */
+    line-height: 1.05; /* H1: 100–110% line spacing (not 110% when large) */
 }
 
 .hero-details {
@@ -117,6 +201,8 @@ body {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.95rem;
     font-weight: 400;
+    font-family: var(--font-body);
+    line-height: 1.5;
 }
 
 .hero-detail svg {
@@ -178,7 +264,7 @@ body {
 }
 
 .step.active .step-circle {
-    background: var(--sf-blue);
+    background: var(--sf-blue-50);
     color: var(--sf-white);
     box-shadow: 0 0 0 4px rgba(1, 118, 211, 0.2);
 }
@@ -205,7 +291,7 @@ body {
 }
 
 .step.active .step-label {
-    color: var(--sf-blue);
+    color: var(--sf-blue-50);
     font-weight: 600;
 }
 
@@ -266,15 +352,18 @@ body {
 
 .form-step-header h2 {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600; /* H2-4: Avant Garde Demi */
     color: var(--sf-gray-900);
     margin-bottom: 6px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0; /* Subhead: tracking 0% */
+    line-height: 1.1; /* H2-4: 100–110% */
 }
 
 .form-step-header p {
     color: var(--sf-gray-500);
     font-size: 0.9rem;
+    font-family: var(--font-body);
+    line-height: 1.5;
 }
 
 /* ===========================
@@ -294,9 +383,10 @@ body {
 .form-group label {
     display: block;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 600; /* Demi for labels */
     color: var(--sf-gray-700);
     margin-bottom: 6px;
+    letter-spacing: 0;
 }
 
 .required {
@@ -315,7 +405,7 @@ body {
     width: 100%;
     padding: 12px 16px;
     font-size: 0.95rem;
-    font-family: inherit;
+    font-family: var(--font-body);
     border: 2px solid var(--sf-gray-200);
     border-radius: var(--radius-sm);
     background: var(--sf-white);
@@ -338,7 +428,7 @@ body {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--sf-blue);
+    border-color: var(--sf-blue-50);
     box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.15);
 }
 
@@ -361,6 +451,8 @@ body {
     font-size: 0.78rem;
     color: var(--sf-gray-500);
     margin-top: 6px;
+    font-family: var(--font-body);
+    line-height: 1.3; /* C1 Caption: 130% */
 }
 
 .error-msg {
@@ -405,7 +497,7 @@ body {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: var(--sf-blue);
+    background: var(--sf-blue-50);
     color: var(--sf-white);
     display: flex;
     align-items: center;
@@ -413,7 +505,7 @@ body {
 }
 
 .eligibility-text strong {
-    color: var(--sf-blue-dark);
+    color: var(--sf-blue-30);
     font-size: 0.9rem;
 }
 
@@ -447,7 +539,7 @@ body {
     width: 52px;
     height: 52px;
     border-radius: var(--radius-md);
-    background: var(--sf-blue);
+    background: var(--sf-blue-50);
     color: var(--sf-white);
     display: flex;
     align-items: center;
@@ -470,7 +562,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--sf-blue);
+    color: var(--sf-blue-50);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.88rem;
@@ -479,7 +571,7 @@ body {
 }
 
 .prework-link:hover {
-    color: var(--sf-blue-dark);
+    color: var(--sf-blue-40);
     text-decoration: underline;
 }
 
@@ -510,8 +602,10 @@ body {
     gap: 8px;
     padding: 12px 28px;
     font-size: 0.95rem;
-    font-weight: 600;
-    font-family: inherit;
+    font-weight: 600; /* CTA: Avant Garde Demi */
+    font-family: var(--font-heading);
+    line-height: 1.3; /* CTA: 130% line spacing */
+    letter-spacing: 0; /* CTA: tracking 0% */
     border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
@@ -520,13 +614,13 @@ body {
 }
 
 .btn-primary {
-    background: var(--sf-blue);
+    background: var(--sf-blue-50);
     color: var(--sf-white);
     box-shadow: 0 2px 8px rgba(1, 118, 211, 0.3);
 }
 
 .btn-primary:hover {
-    background: var(--sf-blue-dark);
+    background: var(--sf-blue-40);
     box-shadow: 0 4px 12px rgba(1, 118, 211, 0.4);
     transform: translateY(-1px);
 }
@@ -567,6 +661,18 @@ footer {
     padding: 24px;
     color: var(--sf-gray-500);
     font-size: 0.82rem;
+    font-family: var(--font-body);
+    line-height: 1.3; /* C1 Caption: 130% */
+}
+
+/* Logo no footer: Brand Central recomenda mínimo 40px para uso digital */
+.footer-logo {
+    display: block;
+    margin: 0 auto 12px;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.95;
 }
 
 /* ===========================

@@ -1,0 +1,11 @@
+# Excluir .mov do deploy (limite 100 MB na Vercel); o site usa .webm e .mp4
+**/*.mov
+videos/**/*.mov
+
+# Não enviar metadados Salesforce nem arquivos de desenvolvimento
+force-app/
+.sfdx/
+.mvn/
+.git/
+*.md
+a-confirmacao-inscricao.txt
