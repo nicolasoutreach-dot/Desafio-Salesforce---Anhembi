@@ -13,10 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================
     // Check available spots
     // ============================
-    // TROCAR a URL abaixo pela URL pública do Salesforce Site
-    const VAGAS_ENDPOINT = 'https://storm-554277f5618b60.my.salesforce-sites.com/services/apexrest/hackathon/vagas';
 
-    fetch(VAGAS_ENDPOINT)
+    fetch('config.json')
         .then(res => res.json())
         .then(data => {
             if (!data.available) {
@@ -25,9 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('vagas-esgotadas').style.display = 'block';
             }
         })
-        .catch(() => {
-            // Fallback: se falhar a consulta, mantém o formulário aberto
-        });
+        .catch(() => {});
 
     // ============================
     // Navigation
