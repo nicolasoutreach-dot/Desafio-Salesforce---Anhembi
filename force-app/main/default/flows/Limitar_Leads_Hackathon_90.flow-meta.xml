@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <label>Limitar Leads Hackathon a 90</label>
+    <description>Impede a criação de mais de 90 leads com Lead Source = Hackathon Salesforce 2026. Leads excedentes são deletados.</description>
+    <status>Active</status>
+    <processType>AutoLaunchedFlow</processType>
+    <interviewLabel>Limitar Leads Hackathon {!$Flow.CurrentDateTime}</interviewLabel>
+
+    <!-- Variable: counter -->
+    <variables>
+        <name>LeadCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+
+    <!-- Start: Record-Triggered on Lead Create, LeadSource = Hackathon Salesforce 2026 -->
+    <start>
+        <locationX>176</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Hackathon_Leads</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LeadSource</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Hackathon Salesforce 2026</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+
+    <!-- Get Records: all Hackathon leads -->
+    <recordLookups>
+        <name>Get_Hackathon_Leads</name>
+        <label>Get Hackathon Leads</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <connector>
+            <targetReference>Loop_Leads</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LeadSource</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Hackathon Salesforce 2026</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+
+    <!-- Loop through leads to count -->
+    <loops>
+        <name>Loop_Leads</name>
+        <label>Contar Leads</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <collectionReference>Get_Hackathon_Leads</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Increment_Counter</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Check_Limit_90</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+
+    <!-- Assignment: increment counter -->
+    <assignments>
+        <name>Increment_Counter</name>
+        <label>Incrementar Contador</label>
+        <locationX>308</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>LeadCount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Leads</targetReference>
+        </connector>
+    </assignments>
+
+    <!-- Decision: more than 90? -->
+    <decisions>
+        <name>Check_Limit_90</name>
+        <label>Mais de 90 leads?</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <defaultConnectorLabel>Dentro do limite</defaultConnectorLabel>
+        <rules>
+            <name>Exceeded_90</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadCount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>90.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_Excess_Lead</targetReference>
+            </connector>
+            <label>Excedeu 90</label>
+        </rules>
+    </decisions>
+
+    <!-- Delete the excess lead -->
+    <recordDeletes>
+        <name>Delete_Excess_Lead</name>
+        <label>Deletar Lead Excedente</label>
+        <locationX>308</locationX>
+        <locationY>638</locationY>
+        <inputReference>$Record</inputReference>
+    </recordDeletes>
+</Flow>
