@@ -28,9 +28,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    stepperSteps.forEach((stepEl, i) => {
+        stepEl.addEventListener('click', () => {
+            const targetStep = i + 1;
+            if (targetStep === currentStep) return;
+            if (targetStep < currentStep) {
+                goToStep(targetStep);
+            } else {
+                let canAdvance = true;
+                for (let s = currentStep; s < targetStep; s++) {
+                    if (!validateStep(s)) { canAdvance = false; break; }
+                }
+                if (canAdvance) goToStep(targetStep);
+            }
+        });
+    });
+
+    let isAnimating = false;
+
     function goToStep(step) {
-        steps.forEach(s => s.classList.remove('active'));
-        document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+        if (isAnimating || step === currentStep) return;
+        isAnimating = true;
+
+        const direction = step > currentStep ? 'left' : 'right';
+        const currentEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+        const nextEl = document.querySelector(`.form-step[data-step="${step}"]`);
+
+        const outClass = direction === 'left' ? 'slide-out-left' : 'slide-out-right';
+        const inClass = direction === 'left' ? 'slide-in-right' : 'slide-in-left';
+
+        currentEl.classList.add(outClass);
+
+        currentEl.addEventListener('animationend', function handler() {
+            currentEl.removeEventListener('animationend', handler);
+            currentEl.classList.remove('active', outClass, 'slide-out-left', 'slide-out-right');
+            currentEl.style.display = 'none';
+
+            nextEl.style.display = 'block';
+            nextEl.classList.remove('slide-in-left', 'slide-in-right');
+            nextEl.classList.add('active', inClass);
+
+            nextEl.addEventListener('animationend', function handler2() {
+                nextEl.removeEventListener('animationend', handler2);
+                nextEl.classList.remove(inClass);
+                isAnimating = false;
+            });
+        });
 
         stepperSteps.forEach((s, i) => {
             const stepNum = i + 1;
