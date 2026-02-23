@@ -15,7 +15,6 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding-bottom: 140px; /* espaço para o footer fixo */
         }
         .obrigado-main {
             flex: 1;
@@ -69,19 +68,12 @@
         .btn-voltar:active {
             transform: translateY(0);
         }
-        /* Footer fixo: logo + texto sempre embaixo */
+        /* Footer: normal no desktop */
         .obrigado-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
             background: var(--sf-white);
             border-top: 1px solid var(--sf-gray-200);
             padding: 20px 24px 24px;
             text-align: center;
-            z-index: 10;
-            /* safe area para notch/home indicator no mobile */
-            padding-bottom: max(24px, env(safe-area-inset-bottom));
         }
         .obrigado-footer .footer-logo {
             display: block;
@@ -99,12 +91,21 @@
             color: var(--sf-gray-700);
             text-decoration: none;
         }
+        /* Mobile: footer fixo embaixo */
         @media (max-width: 640px) {
             .obrigado-wrap {
                 padding-bottom: 130px;
             }
             .obrigado-card {
                 padding: 32px 24px;
+            }
+            .obrigado-footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                padding-bottom: max(24px, env(safe-area-inset-bottom));
             }
         }
     </style>
@@ -114,6 +115,12 @@
         <main class="obrigado-main">
             <div class="obrigado-card">
                 <h1>Inscrição recebida!</h1>
+
+                <video autoplay loop muted playsinline style="width:100%; max-width:420px; border-radius:12px; margin-bottom:24px;">
+                    <source src="videos/agradecimento.webm" type="video/webm">
+                    <source src="videos/agradecimento.mp4" type="video/mp4">
+                </video>
+
                 <p>Obrigado por se inscrever no Hackathon Salesforce 2026. Em breve você receberá um e-mail de confirmação.</p>
                 <p><strong>Local:</strong> FECAP — Av. da Liberdade, 532, Liberdade, São Paulo - SP</p>
                 <a href="index.html" class="btn-voltar">Voltar ao início</a>
