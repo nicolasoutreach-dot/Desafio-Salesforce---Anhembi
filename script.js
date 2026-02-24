@@ -235,18 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!validateStep(currentStep)) return;
 
-        // reCAPTCHA: descomentar quando ativado
-        // const recaptchaResponse = document.querySelector('#g-recaptcha-response');
-        // if (recaptchaResponse && !recaptchaResponse.value) {
-        //     const errorEl = document.getElementById('recaptcha-error');
-        //     if (errorEl) {
-        //         errorEl.textContent = 'Complete o reCAPTCHA para continuar.';
-        //         errorEl.style.display = 'block';
-        //     }
-        //     return;
-        // }
-        const recaptchaResponse = null;
-
         const institution = institutionSelect.value === '__outros__'
             ? otherInstitutionInput.value.trim()
             : institutionSelect.value;
@@ -262,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hiddenForm.method = 'POST';
         hiddenForm.action = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
         hiddenForm.style.display = 'none';
-        hiddenForm.target = 'salesforce-webtolead-iframe';
+        hiddenForm.acceptCharset = 'UTF-8';
 
         const obrigadoUrl = new URL('obrigado.html', window.location.href).href;
         const fields = {
@@ -290,28 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hiddenForm.appendChild(input);
         });
 
-        if (recaptchaResponse && recaptchaResponse.value) {
-            const captchaInput = document.createElement('input');
-            captchaInput.type = 'hidden';
-            captchaInput.name = 'g-recaptcha-response';
-            captchaInput.value = recaptchaResponse.value;
-            hiddenForm.appendChild(captchaInput);
-        }
-
-        let iframe = document.getElementById('salesforce-webtolead-iframe');
-        if (!iframe) {
-            iframe = document.createElement('iframe');
-            iframe.name = 'salesforce-webtolead-iframe';
-            iframe.id = 'salesforce-webtolead-iframe';
-            iframe.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden';
-            document.body.appendChild(iframe);
-        }
-
         document.body.appendChild(hiddenForm);
         hiddenForm.submit();
-
-        setTimeout(() => {
-            window.location.href = obrigadoUrl;
-        }, 1500);
     });
 });
