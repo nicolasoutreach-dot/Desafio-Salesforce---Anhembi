@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label>Hackathon Lead Fields</label>
-    <description>Acesso aos campos customizados do Lead para o Hackathon Salesforce</description>
+    <label>Desafio Agentes (IA) Lead Fields</label>
+    <description>Acesso aos campos customizados do Lead para o Desafio Salesforce: Criação de Agentes (IA)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <fieldPermissions>
         <editable>true</editable>

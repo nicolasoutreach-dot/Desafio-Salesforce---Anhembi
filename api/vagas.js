@@ -27,7 +27,7 @@ export default async function handler(req, res) {
         const { access_token, instance_url } = await tokenRes.json();
 
         const query = encodeURIComponent(
-            "SELECT COUNT(Id) total FROM Lead WHERE LeadSource = 'Hackathon Salesforce 2026'"
+            "SELECT COUNT(Id) total FROM Lead WHERE LeadSource = 'Desafio Salesforce: Criação de Agentes (IA)'"
         );
         const queryRes = await fetch(
             `${instance_url}/services/data/v59.0/query?q=${query}`,

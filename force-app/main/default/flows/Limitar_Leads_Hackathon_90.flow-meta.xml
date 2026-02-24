@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>59.0</apiVersion>
-    <label>Limitar Leads Hackathon a 90</label>
-    <description>Impede a criação de mais de 90 leads com Lead Source = Hackathon Salesforce 2026. Leads excedentes são deletados.</description>
+    <label>Limitar Leads Desafio Agentes (IA) a 90</label>
+    <description>Impede a criação de mais de 90 leads com Lead Source = Desafio Salesforce: Criação de Agentes (IA). Leads excedentes são deletados.</description>
     <status>Active</status>
     <processType>AutoLaunchedFlow</processType>
-    <interviewLabel>Limitar Leads Hackathon {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel>Limitar Leads Desafio {!$Flow.CurrentDateTime}</interviewLabel>
 
     <!-- Variable: counter -->
     <variables>
@@ -20,7 +20,7 @@
         </value>
     </variables>
 
-    <!-- Start: Record-Triggered on Lead Create, LeadSource = Hackathon Salesforce 2026 -->
+    <!-- Start: Record-Triggered on Lead Create, LeadSource = Desafio Salesforce: Criação de Agentes (IA) -->
     <start>
         <locationX>176</locationX>
         <locationY>0</locationY>
@@ -32,7 +32,7 @@
             <field>LeadSource</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Hackathon Salesforce 2026</stringValue>
+                <stringValue>Desafio Salesforce: Criação de Agentes (IA)</stringValue>
             </value>
         </filters>
         <object>Lead</object>
@@ -40,10 +40,10 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
 
-    <!-- Get Records: all Hackathon leads -->
+    <!-- Get Records: all Desafio leads -->
     <recordLookups>
         <name>Get_Hackathon_Leads</name>
-        <label>Get Hackathon Leads</label>
+        <label>Get Desafio Leads</label>
         <locationX>176</locationX>
         <locationY>158</locationY>
         <connector>
@@ -54,7 +54,7 @@
             <field>LeadSource</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Hackathon Salesforce 2026</stringValue>
+                <stringValue>Desafio Salesforce: Criação de Agentes (IA)</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>

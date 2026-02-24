@@ -6,7 +6,7 @@ private class HackathonVagasTest {
             FirstName = 'Test',
             LastName = 'Lead',
             Company = 'FECAP',
-            LeadSource = 'Hackathon Salesforce 2026'
+            LeadSource = 'Desafio Salesforce: Criação de Agentes (IA)'
         );
         insert l;
 

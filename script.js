@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('hackathon-form');
+    const form = document.getElementById('desafio-form');
     const steps = document.querySelectorAll('.form-step');
     const stepperSteps = document.querySelectorAll('.stepper .step');
     const stepperLines = document.querySelectorAll('.stepper .step-line');
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             phone: document.getElementById('phone').value.trim(),
             company: institution,
             title: document.getElementById('title').value.trim(),
-            lead_source: 'Hackathon Salesforce 2026',
+            lead_source: 'Desafio Salesforce: Criação de Agentes (IA)',
             Data_de_Graduacao__c: graduationDate,
             Nivel_de_Ingles__c: englishLevel,
             Perfil_Trailhead__c: trailheadUrl,

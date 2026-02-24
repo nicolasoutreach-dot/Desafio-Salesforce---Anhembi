@@ -4,13 +4,13 @@ Se o deploy via `npx vercel --prod` falhar por permissão de Git:
 
 1. Acesse **https://vercel.com/new**
 2. Escolha **Upload** (não importar do Git)
-3. Arraste toda a pasta do projeto **Hackaton Salesforce** (ou use "Browse")
+3. Arraste toda a pasta do projeto **Desafio Salesforce: Criação de Agentes (IA)** (ou use "Browse")
    - Inclua: `index.html`, `obrigado.html`, `styles.css`, `script.js`, pasta `force-app` se precisar
    - Não precisa incluir: `.git`, `node_modules`, `.vercel`
 4. Em **Output Directory** deixe em branco ou `.`
 5. Clique em **Deploy**
 
-Seu site ficará em `https://hackathon-salesforce-*.vercel.app` (ou o nome que você der ao projeto).
+Seu site ficará em `https://desafio-salesforce-*.vercel.app` (ou o nome que você der ao projeto).
 
 ---
 

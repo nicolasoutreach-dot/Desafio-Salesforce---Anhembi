@@ -1,10 +1,10 @@
-Assunto sugerido: Sua inscrição no Hackathon Salesforce 2026 foi confirmada
+Assunto sugerido: Sua inscrição no Desafio Salesforce: Criação de Agentes (IA) foi confirmada
 
 ---
 
 Olá {!Lead.FirstName},
 
-Recebemos sua inscrição no Hackathon Salesforce 2026. Parabéns por dar esse passo!
+Recebemos sua inscrição no Desafio Salesforce: Criação de Agentes (IA). Parabéns por dar esse passo!
 
 Resumo da sua inscrição:
 • Nome: {!Lead.FirstName} {!Lead.LastName}
@@ -14,7 +14,6 @@ Resumo da sua inscrição:
 
 Informações do evento:
 📅 Data e horário: Sábado, 7 de março de 2026 — 9h às 17h
-📍 Local: FECAP — Av. da Liberdade, 532 — Liberdade, São Paulo - SP, 01502-001
 
 Não esqueça o Pre-Work: complete o trail "Become an Agentblazer Champion 2026" no Trailhead antes do evento. É obrigatório para garantir sua participação.
 Link: https://trailhead.salesforce.com/pt-BR/content/learn/trails/become-an-agentblazer-champion-2026
@@ -22,4 +21,4 @@ Link: https://trailhead.salesforce.com/pt-BR/content/learn/trails/become-an-agen
 Qualquer dúvida, responda a este e-mail. Nos vemos no dia 7/03!
 
 Até lá,
-Equipe Hackathon Salesforce 2026
+Equipe Desafio Salesforce: Criação de Agentes (IA)

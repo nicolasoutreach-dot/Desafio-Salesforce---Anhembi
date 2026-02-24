@@ -5,7 +5,7 @@
       "default": true
     }
   ],
-  "name": "hackathon-salesforce",
+  "name": "desafio-salesforce-agentes",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "59.0"

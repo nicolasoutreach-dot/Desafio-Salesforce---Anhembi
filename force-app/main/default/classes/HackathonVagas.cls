@@ -2,7 +2,7 @@
 global with sharing class HackathonVagas {
     @HttpGet
     global static void getVagas() {
-        Integer total = [SELECT COUNT() FROM Lead WHERE LeadSource = 'Hackathon Salesforce 2026'];
+        Integer total = [SELECT COUNT() FROM Lead WHERE LeadSource = 'Desafio Salesforce: Criação de Agentes (IA)'];
         Boolean available = total < 90;
 
         RestResponse res = RestContext.response;
