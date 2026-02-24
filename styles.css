@@ -735,6 +735,11 @@ footer {
 
     .hero-detail {
         font-size: 0.85rem;
+        align-items: flex-start;
+    }
+
+    .hero-detail svg {
+        margin-top: 2px;
     }
 
     .stepper {
