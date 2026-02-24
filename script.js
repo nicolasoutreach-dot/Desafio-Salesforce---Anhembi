@@ -310,6 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(hiddenForm);
         hiddenForm.submit();
 
-        window.location.href = obrigadoUrl;
+        setTimeout(() => {
+            window.location.href = obrigadoUrl;
+        }, 1500);
     });
 });
