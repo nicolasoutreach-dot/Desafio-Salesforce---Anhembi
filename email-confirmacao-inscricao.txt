@@ -15,7 +15,7 @@ Resumo da sua inscrição:
 Informações do evento:
 📅 Data e horário: Sábado, 7 de março de 2026 — 9h às 17h
 
-Não esqueça o Pre-Work: complete o trail "Become an Agentblazer Champion 2026" no Trailhead antes do evento. É obrigatório para garantir sua participação.
+Não esqueça o Pre-Work: complete o trail "Become an Agentblazer Champion 2026" no Trailhead até o dia 03/03/2025. É obrigatório para garantir sua participação.
 Link: https://trailhead.salesforce.com/pt-BR/content/learn/trails/become-an-agentblazer-champion-2026
 
 Qualquer dúvida, responda a este e-mail. Nos vemos no dia 7/03!
