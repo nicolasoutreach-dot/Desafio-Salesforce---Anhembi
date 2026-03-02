@@ -132,7 +132,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 
 .hero {
     position: relative;
-    background: linear-gradient(135deg, var(--anhembi-green-darker) 0%, var(--anhembi-green) 50%, var(--anhembi-orange) 100%);
+    background: linear-gradient(135deg, var(--anhembi-green-darker) 0%, var(--anhembi-green) 35%, var(--anhembi-orange) 75%, var(--anhembi-orange-light) 100%);
     padding: 60px 24px 80px;
     text-align: center;
     overflow: hidden;
@@ -211,6 +211,13 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     font-weight: 600;
     font-family: var(--font-heading);
     letter-spacing: 0.02em;
+}
+
+.hero-partner-logo {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
 .hero-partner-sep {
