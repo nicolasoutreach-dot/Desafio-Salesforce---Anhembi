@@ -5,7 +5,7 @@ private class HackathonVagasTest {
         Lead l = new Lead(
             FirstName = 'Test',
             LastName = 'Lead',
-            Company = 'FECAP',
+            Company = 'Anhembi',
             LeadSource = 'Desafio Salesforce: Criação de Agentes (IA)'
         );
         insert l;
