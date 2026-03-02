@@ -33,32 +33,41 @@
 }
 
 :root {
-    /* Cloud Blues & Blues – paleta principal Salesforce (1:00 PM, energética) */
-    --sf-blue-10: #001639;
-    --sf-blue-15: #03234d;
-    --sf-blue-20: #032d60;
-    --sf-blue-30: #014486;
-    --sf-blue-40: #0b5cab;
-    --sf-blue-50: #0176d3;
-    --sf-blue-60: #1b96ff;
-    --sf-blue-65: #57a3fd;
-    --sf-blue-70: #78b0fd;
-    --sf-blue-80: #aacbff;
-    --sf-blue-90: #d8e6fe;
-    --sf-blue-95: #eef4ff;
-    --sf-cloud-20: #023248;
-    --sf-cloud-50: #107cad;
-    --sf-cloud-60: #0d9dda;
-    --sf-cloud-70: #1ab9ff;
-    --sf-cloud-90: #cfe9fe;
+    /* Anhembi Morumbi – Persian Green + Orange accent */
+    --anhembi-green: #00A693;
+    --anhembi-green-dark: #008577;
+    --anhembi-green-darker: #006B5E;
+    --anhembi-green-light: #33BBA9;
+    --anhembi-green-lightest: #E6F7F5;
+    --anhembi-orange: #F37021;
+    --anhembi-orange-dark: #D45E15;
+    --anhembi-orange-light: #FF8C42;
+    /* Aliases Salesforce (mapeados para Anhembi) */
+    --sf-blue-10: #003D35;
+    --sf-blue-15: #004D43;
+    --sf-blue-20: #006B5E;
+    --sf-blue-30: #008577;
+    --sf-blue-40: #008577;
+    --sf-blue-50: #00A693;
+    --sf-blue-60: #33BBA9;
+    --sf-blue-65: #57C9BA;
+    --sf-blue-70: #78D4C8;
+    --sf-blue-80: #A3E3DA;
+    --sf-blue-90: #CCF0EB;
+    --sf-blue-95: #E6F7F5;
+    --sf-cloud-20: #004D43;
+    --sf-cloud-50: #00A693;
+    --sf-cloud-60: #33BBA9;
+    --sf-cloud-70: #57C9BA;
+    --sf-cloud-90: #CCF0EB;
     /* Aliases (compatibilidade) */
-    --sf-blue: #0176d3;
-    --sf-blue-dark: #014486;
-    --sf-blue-darker: #032d60;
-    --sf-blue-light: #1b96ff;
-    --sf-blue-lightest: #eef4ff;
+    --sf-blue: #00A693;
+    --sf-blue-dark: #008577;
+    --sf-blue-darker: #006B5E;
+    --sf-blue-light: #33BBA9;
+    --sf-blue-lightest: #E6F7F5;
     --sf-navy: #0b0f19;
-    --sf-sky: #0d9dda;
+    --sf-sky: #33BBA9;
     --sf-white: #ffffff;
     /* Neutros */
     --sf-gray-100: #f3f3f3;
@@ -123,7 +132,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 
 .hero {
     position: relative;
-    background: linear-gradient(135deg, var(--sf-blue-20) 0%, var(--sf-blue-50) 45%, var(--sf-cloud-60) 100%);
+    background: linear-gradient(135deg, var(--anhembi-green-darker) 0%, var(--anhembi-green) 50%, var(--anhembi-orange) 100%);
     padding: 60px 24px 80px;
     text-align: center;
     overflow: hidden;
@@ -185,6 +194,28 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     margin-bottom: 0;
     letter-spacing: -0.02em; /* H1: tracking -2% */
     line-height: 1.05; /* H1: 100–110% line spacing (not 110% when large) */
+}
+
+.hero-partner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    padding: 8px 24px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    color: var(--sf-white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+}
+
+.hero-partner-sep {
+    opacity: 0.5;
+    font-size: 0.8rem;
 }
 
 .hero-details {
@@ -274,9 +305,9 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 }
 
 .step.active .step-circle {
-    background: var(--sf-blue-50);
+    background: var(--anhembi-green);
     color: var(--sf-white);
-    box-shadow: 0 0 0 4px rgba(1, 118, 211, 0.2);
+    box-shadow: 0 0 0 4px rgba(0, 166, 147, 0.2);
 }
 
 .step.completed .step-circle {
@@ -301,7 +332,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 }
 
 .step.active .step-label {
-    color: var(--sf-blue-50);
+    color: var(--anhembi-green);
     font-weight: 600;
 }
 
@@ -473,8 +504,8 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--sf-blue-50);
-    box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.15);
+    border-color: var(--anhembi-green);
+    box-shadow: 0 0 0 3px rgba(0, 166, 147, 0.15);
 }
 
 .form-group select {
@@ -530,8 +561,8 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 .eligibility-card {
     display: flex;
     gap: 16px;
-    background: var(--sf-blue-lightest);
-    border: 1px solid rgba(1, 118, 211, 0.15);
+    background: var(--anhembi-green-lightest);
+    border: 1px solid rgba(0, 166, 147, 0.15);
     border-radius: var(--radius-md);
     padding: 20px;
     margin-bottom: 28px;
@@ -542,7 +573,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: var(--sf-blue-50);
+    background: var(--anhembi-green);
     color: var(--sf-white);
     display: flex;
     align-items: center;
@@ -550,7 +581,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 }
 
 .eligibility-text strong {
-    color: var(--sf-blue-30);
+    color: var(--anhembi-green-dark);
     font-size: 0.9rem;
 }
 
@@ -572,8 +603,8 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 .prework-card {
     display: flex;
     gap: 16px;
-    background: linear-gradient(135deg, var(--sf-blue-lightest) 0%, #f0f7ff 100%);
-    border: 1px solid rgba(1, 118, 211, 0.15);
+    background: linear-gradient(135deg, var(--anhembi-green-lightest) 0%, #edfaf8 100%);
+    border: 1px solid rgba(0, 166, 147, 0.15);
     border-radius: var(--radius-md);
     padding: 24px;
     margin-bottom: 28px;
@@ -584,7 +615,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     width: 52px;
     height: 52px;
     border-radius: var(--radius-md);
-    background: var(--sf-blue-50);
+    background: var(--anhembi-green);
     color: var(--sf-white);
     display: flex;
     align-items: center;
@@ -607,7 +638,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--sf-blue-50);
+    color: var(--anhembi-green);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.88rem;
@@ -616,7 +647,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 }
 
 .prework-link:hover {
-    color: var(--sf-blue-40);
+    color: var(--anhembi-green-dark);
     text-decoration: underline;
 }
 
@@ -659,20 +690,20 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 }
 
 .btn-primary {
-    background: var(--sf-blue-50);
+    background: var(--anhembi-orange);
     color: var(--sf-white);
-    box-shadow: 0 2px 8px rgba(1, 118, 211, 0.3);
+    box-shadow: 0 2px 8px rgba(243, 112, 33, 0.3);
 }
 
 .btn-primary:hover {
-    background: var(--sf-blue-40);
-    box-shadow: 0 4px 12px rgba(1, 118, 211, 0.4);
+    background: var(--anhembi-orange-dark);
+    box-shadow: 0 4px 12px rgba(243, 112, 33, 0.4);
     transform: translateY(-1px);
 }
 
 .btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 1px 4px rgba(1, 118, 211, 0.3);
+    box-shadow: 0 1px 4px rgba(243, 112, 33, 0.3);
 }
 
 .btn-secondary {
