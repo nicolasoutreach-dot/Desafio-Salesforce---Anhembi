@@ -157,16 +157,16 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
 
 .hero-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.22);
     color: var(--sf-white);
-    padding: 6px 20px;
+    padding: 4px 14px;
     border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600; /* Demi */
-    letter-spacing: 0; /* H2-4/eyebrow: tracking 0% */
-    margin-bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+    margin-left: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Hero title + Astro: alinhamento homogêneo (Brand Central – clear space, placement) */
