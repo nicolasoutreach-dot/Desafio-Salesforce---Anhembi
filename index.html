@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://www.fuelcdn.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/salesforce-logo.png" type="image/png">
+    <link rel="icon" href="images/anhembi-morumbi-logo.png" type="image/png">
     <!-- reCAPTCHA: descomentar quando tiver chave v2 válida -->
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
@@ -18,15 +18,15 @@
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-badge">Inscrições Abertas</div>
-            <div class="hero-title-row">
-                <img src="images/astro.png" alt="Agent Astro, mascote Salesforce" class="hero-astro">
-                <h1>Desafio Salesforce: Criação de Agentes (IA)</h1>
-            </div>
             <div class="hero-partner">
                 <img src="images/anhembi-morumbi-logo.png" alt="Universidade Anhembi Morumbi" class="hero-partner-logo">
                 <span class="hero-partner-sep">×</span>
                 <span>Salesforce</span>
+            </div>
+            <div class="hero-badge">Inscrições Abertas</div>
+            <div class="hero-title-row">
+                <img src="images/astro.png" alt="Agent Astro, mascote Salesforce" class="hero-astro">
+                <h1>Desafio Salesforce: Criação de Agentes (IA)</h1>
             </div>
             <div class="hero-details">
                 <div class="hero-detail">
@@ -37,6 +37,13 @@
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
                     <span>07/03 das 9hrs às 17hrs</span>
+                </div>
+                <div class="hero-detail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Av. Paulista, 2000</span>
                 </div>
             </div>
         </div>
@@ -130,10 +137,10 @@
                         <label for="company">Instituição de Ensino <span class="required">*</span></label>
                         <select id="company" name="company" required>
                             <option value="">Selecione sua instituição...</option>
+                            <option value="ANHEMBI">ANHEMBI MORUMBI</option>
                             <option value="BELAS ARTES">BELAS ARTES</option>
                             <option value="ESPM">ESPM</option>
                             <option value="FACULDADE XP">FACULDADE XP</option>
-                            <option value="ANHEMBI">ANHEMBI</option>
                             <option value="FEI">FEI</option>
                             <option value="FIAP">FIAP</option>
                             <option value="IBMEC">IBMEC</option>
@@ -323,7 +330,7 @@
     </main>
 
     <footer class="footer-fixed">
-        <p>Desafio Salesforce: Criação de Agentes (IA) — Powered by Salesforce</p>
+        <p>Desafio Salesforce: Criação de Agentes (IA) — Universidade Anhembi Morumbi × Salesforce</p>
     </footer>
 
     <script src="script.js"></script>

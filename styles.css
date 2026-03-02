@@ -77,7 +77,7 @@
     --sf-gray-700: #444444;
     --sf-gray-900: #181818;
     /* Semânticas */
-    --sf-success: #2e844a;
+    --sf-success: #008577;
     --sf-error: #ea001e;
     --sf-warning: #fe9339;
     /* Tipografia */
@@ -217,7 +217,9 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     height: 28px;
     width: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    background: rgba(255, 255, 255, 0.92);
+    padding: 4px 8px;
+    border-radius: 6px;
 }
 
 .hero-partner-sep {
@@ -372,6 +374,7 @@ h1, h2, h3, h4, .hero h1, .form-step-header h2, .step-number, .form-group label,
     box-shadow: var(--shadow-lg);
     overflow: hidden;
     position: relative;
+    border-top: 3px solid var(--anhembi-green);
 }
 
 .form-step {
@@ -842,6 +845,16 @@ body:has(footer.footer-fixed) .container {
         flex-direction: column;
         text-align: center;
         align-items: center;
+    }
+
+    .hero-partner {
+        padding: 6px 16px;
+        font-size: 0.78rem;
+        gap: 8px;
+    }
+
+    .hero-partner-logo {
+        height: 22px;
     }
 
     .eligibility-text ul {
