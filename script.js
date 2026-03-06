@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('.form-step');
     const stepperSteps = document.querySelectorAll('.stepper .step');
     const stepperLines = document.querySelectorAll('.stepper .step-line');
-    const institutionSelect = document.getElementById('company');
-    const otherInstitutionGroup = document.getElementById('other-institution-group');
-    const otherInstitutionInput = document.getElementById('other_institution');
     const phoneInput = document.getElementById('phone');
 
     let currentStep = 1;
@@ -109,21 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================
-    // "Outros" institution toggle
-    // ============================
-
-    institutionSelect.addEventListener('change', () => {
-        if (institutionSelect.value === '__outros__') {
-            otherInstitutionGroup.classList.remove('hidden');
-            otherInstitutionInput.setAttribute('required', '');
-        } else {
-            otherInstitutionGroup.classList.add('hidden');
-            otherInstitutionInput.removeAttribute('required');
-            otherInstitutionInput.value = '';
-        }
-    });
-
-    // ============================
     // Phone mask (BR format)
     // ============================
 
@@ -167,12 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 valid = false;
             }
         });
-
-        if (step === 1 && institutionSelect.value === '__outros__' && !otherInstitutionInput.value.trim()) {
-            const group = otherInstitutionInput.closest('.form-group');
-            setError(group, 'Digite o nome da sua instituição.');
-            valid = false;
-        }
 
         if (step === 3) {
             const linkedinInput = document.getElementById('linkedin_url');
@@ -235,10 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!validateStep(currentStep)) return;
 
-        const institution = institutionSelect.value === '__outros__'
-            ? otherInstitutionInput.value.trim()
-            : institutionSelect.value;
-
         const graduationDate = document.getElementById('graduation_date').value;
         const englishLevel = document.getElementById('english_level').value;
         const trailheadUrl = document.getElementById('trailhead_url').value.trim();
@@ -260,9 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
             last_name: document.getElementById('last_name').value.trim(),
             email: document.getElementById('email').value.trim(),
             phone: document.getElementById('phone').value.trim(),
-            company: institution,
+            company: 'Desafio Salesforce',
             title: document.getElementById('title').value.trim(),
-            lead_source: 'Desafio Salesforce: Criação de Agentes (IA)',
+            lead_source: 'Anhembi Morumbi',
             Data_de_Graduacao__c: graduationDate,
             Nivel_de_Ingles__c: englishLevel,
             Perfil_Trailhead__c: trailheadUrl,
