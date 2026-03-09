@@ -151,11 +151,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (step === 3) {
+            const trailheadInput = document.getElementById('trailhead_url');
+            if (trailheadInput && trailheadInput.value.trim()) {
+                const url = trailheadInput.value.trim().toLowerCase();
+                if (!url.includes('trailhead.salesforce.com')) {
+                    const group = trailheadInput.closest('.form-group');
+                    setError(group, 'O link deve ser do Trailhead (trailhead.salesforce.com). Cole o link do seu perfil público.');
+                    valid = false;
+                }
+            }
+
             const linkedinInput = document.getElementById('linkedin_url');
-            if (linkedinInput && linkedinInput.value.trim() && !isValidURL(linkedinInput.value.trim())) {
-                const group = linkedinInput.closest('.form-group');
-                setError(group, 'Digite uma URL válida (ex: https://www.linkedin.com/in/seu-perfil)');
-                valid = false;
+            if (linkedinInput && linkedinInput.value.trim()) {
+                const url = linkedinInput.value.trim().toLowerCase();
+                if (!url.includes('linkedin.com')) {
+                    const group = linkedinInput.closest('.form-group');
+                    setError(group, 'O link deve ser do LinkedIn (linkedin.com/in/seu-perfil).');
+                    valid = false;
+                }
             }
         }
 
