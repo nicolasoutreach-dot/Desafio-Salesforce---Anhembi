@@ -11,10 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check available spots
     // ============================
 
-    // Inscrições encerradas
-    form.style.display = 'none';
-    document.querySelector('.stepper').style.display = 'none';
-    document.getElementById('vagas-esgotadas').style.display = 'block';
+    fetch('/api/vagas')
+        .then(res => res.json())
+        .then(data => {
+            if (!data.available) {
+                form.style.display = 'none';
+                document.querySelector('.stepper').style.display = 'none';
+                document.getElementById('vagas-esgotadas').style.display = 'block';
+            }
+        })
+        .catch(() => {});
 
     // ============================
     // Navigation
