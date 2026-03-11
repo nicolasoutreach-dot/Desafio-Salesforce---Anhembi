@@ -8,36 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStep = 1;
 
     // ============================
-    // Check available spots + deadline
+    // Check available spots
     // ============================
 
-    function showVagasEsgotadas() {
-        form.style.display = 'none';
-        document.querySelector('.stepper').style.display = 'none';
-        document.getElementById('vagas-esgotadas').style.display = 'block';
-    }
-
-    function isPastDeadline() {
-        const now = new Date();
-        const deadline = new Date('2026-03-02T12:00:00-03:00');
-        return now >= deadline;
-    }
-
-    if (isPastDeadline()) {
-        showVagasEsgotadas();
-    } else {
-        fetch('/api/vagas')
-            .then(res => res.json())
-            .then(data => {
-                if (!data.available) showVagasEsgotadas();
-            })
-            .catch(() => {});
-
-        const msUntilDeadline = new Date('2026-03-02T12:00:00-03:00') - new Date();
-        if (msUntilDeadline > 0) {
-            setTimeout(showVagasEsgotadas, msUntilDeadline);
-        }
-    }
+    fetch('/api/vagas')
+        .then(res => res.json())
+        .then(data => {
+            if (!data.available) {
+                form.style.display = 'none';
+                document.querySelector('.stepper').style.display = 'none';
+                document.getElementById('vagas-esgotadas').style.display = 'block';
+            }
+        })
+        .catch(() => {});
 
     // ============================
     // Navigation
