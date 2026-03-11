@@ -154,9 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const trailheadInput = document.getElementById('trailhead_url');
             if (trailheadInput && trailheadInput.value.trim()) {
                 const url = trailheadInput.value.trim().toLowerCase();
-                if (!url.includes('trailhead.salesforce.com')) {
+                if (!url.includes('trailhead.salesforce.com') && !url.includes('salesforce.com/trailblazer')) {
                     const group = trailheadInput.closest('.form-group');
-                    setError(group, 'O link deve ser do Trailhead (trailhead.salesforce.com). Cole o link do seu perfil público.');
+                    setError(group, 'O link deve ser do Trailhead (trailhead.salesforce.com ou salesforce.com/trailblazer). Cole o link do seu perfil público.');
                     valid = false;
                 }
             }
