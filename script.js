@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function isPastDeadline() {
         const now = new Date();
-        const deadline = new Date('2026-03-07T12:00:00-03:00');
+        const deadline = new Date('2026-03-02T12:00:00-03:00');
         return now >= deadline;
     }
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(() => {});
 
-        const msUntilDeadline = new Date('2026-03-07T12:00:00-03:00') - new Date();
+        const msUntilDeadline = new Date('2026-03-02T12:00:00-03:00') - new Date();
         if (msUntilDeadline > 0) {
             setTimeout(showVagasEsgotadas, msUntilDeadline);
         }
